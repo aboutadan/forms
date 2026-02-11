@@ -1,0 +1,12 @@
+.claude
+.vscode
+.codex
+.env
+PROJECT_INDEX.json
+.DS_Store
+Thumbs.db
+node_modules/
+dist/
+build/
+*.log
+__pycache__/

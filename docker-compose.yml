@@ -1,0 +1,38 @@
+services:
+  app:
+    build: .
+    container_name: formatos-app
+    ports:
+      - "80:80"
+    volumes:
+      - ./:/var/www/html
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    container_name: formatos-db
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: forms
+      MYSQL_USER: forms_user
+      MYSQL_PASSWORD: forms_pass
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - db_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: formatos-phpmyadmin
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: root
+    depends_on:
+      - db
+
+volumes:
+  db_data:
