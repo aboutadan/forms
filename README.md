@@ -1,4 +1,4 @@
-# Formatos
+# Forms
 
 A dynamic form builder and submission system (Google Forms style) built with PHP 8 and MySQL 8. Forms are defined as JSON schemas, built through a drag-and-drop UI, and rendered as public pages for respondents.
 
@@ -8,11 +8,11 @@ A dynamic form builder and submission system (Google Forms style) built with PHP
 
 That's it. The Docker setup includes:
 
-| Service      | Image                    | Port  |
-|-------------|--------------------------|-------|
-| PHP/Apache  | `php:8.2-apache`         | 80    |
-| MySQL       | `mysql:8.0`              | 3306  |
-| phpMyAdmin  | `phpmyadmin/phpmyadmin`  | 8081  |
+| Service    | Image                   | Port |
+| ---------- | ----------------------- | ---- |
+| PHP/Apache | `php:8.2-apache`        | 80   |
+| MySQL      | `mysql:8.0`             | 3306 |
+| phpMyAdmin | `phpmyadmin/phpmyadmin` | 8081 |
 
 ## Getting Started
 
@@ -38,16 +38,16 @@ http://localhost
 
 ### Question Types
 
-| Type           | HTML Control    |
-|---------------|-----------------|
-| `text`        | Text input      |
-| `textarea`    | Multi-line text |
-| `email`       | Email input     |
-| `number`      | Number input    |
-| `date`        | Date picker     |
-| `select`      | Dropdown        |
-| `radio`       | Single choice   |
-| `checkbox`    | Multiple choice |
+| Type       | HTML Control    |
+| ---------- | --------------- |
+| `text`     | Text input      |
+| `textarea` | Multi-line text |
+| `email`    | Email input     |
+| `number`   | Number input    |
+| `date`     | Date picker     |
+| `select`   | Dropdown        |
+| `radio`    | Single choice   |
+| `checkbox` | Multiple choice |
 
 ### Conditional Logic
 
@@ -59,16 +59,16 @@ Questions can be shown or hidden based on a previous question's answer. Each con
 
 Available operators depend on the parent question type:
 
-| Operator        | Applies to                     | Description                       |
-|----------------|--------------------------------|-----------------------------------|
-| Is answered    | All types                      | Any non-empty answer              |
-| Equals         | All types                      | Exact match                       |
-| Does not equal | All types                      | Not an exact match                |
-| Contains       | Text, Long text, Email         | Answer includes the substring     |
-| Greater than   | Number                         | Numeric comparison                |
-| Less than      | Number                         | Numeric comparison                |
-| Is after       | Date                           | Date is after the value           |
-| Is before      | Date                           | Date is before the value          |
+| Operator       | Applies to             | Description                   |
+| -------------- | ---------------------- | ----------------------------- |
+| Is answered    | All types              | Any non-empty answer          |
+| Equals         | All types              | Exact match                   |
+| Does not equal | All types              | Not an exact match            |
+| Contains       | Text, Long text, Email | Answer includes the substring |
+| Greater than   | Number                 | Numeric comparison            |
+| Less than      | Number                 | Numeric comparison            |
+| Is after       | Date                   | Date is after the value       |
+| Is before      | Date                   | Date is before the value      |
 
 When a condition is **not met**, the question is hidden from the respondent, its inputs are cleared, and it is excluded from both validation and stored responses.
 
@@ -97,23 +97,23 @@ Two tables in the `forms` database:
 
 **`forms`** — stores form definitions
 
-| Column             | Type              | Description                   |
-|-------------------|-------------------|-------------------------------|
-| `id`              | BIGINT PK         | Auto-increment                |
-| `owner_id`        | BIGINT            | Form owner                    |
-| `title`           | VARCHAR(255)      | Form title                    |
-| `draft_schema`    | JSON              | Editable schema               |
-| `published_schema`| JSON              | Live schema (set on publish)  |
-| `is_published`    | TINYINT           | 0 = draft, 1 = published     |
+| Column             | Type         | Description                  |
+| ------------------ | ------------ | ---------------------------- |
+| `id`               | BIGINT PK    | Auto-increment               |
+| `owner_id`         | BIGINT       | Form owner                   |
+| `title`            | VARCHAR(255) | Form title                   |
+| `draft_schema`     | JSON         | Editable schema              |
+| `published_schema` | JSON         | Live schema (set on publish) |
+| `is_published`     | TINYINT      | 0 = draft, 1 = published     |
 
 **`form_submissions`** — stores respondent answers
 
-| Column         | Type         | Description                    |
-|---------------|--------------|--------------------------------|
-| `id`          | BIGINT PK    | Auto-increment                 |
-| `form_id`     | BIGINT FK    | References `forms.id`          |
-| `responses`   | JSON         | Key-value map of answers       |
-| `submitted_at`| TIMESTAMP    | Submission time                |
+| Column         | Type      | Description              |
+| -------------- | --------- | ------------------------ |
+| `id`           | BIGINT PK | Auto-increment           |
+| `form_id`      | BIGINT FK | References `forms.id`    |
+| `responses`    | JSON      | Key-value map of answers |
+| `submitted_at` | TIMESTAMP | Submission time          |
 
 ## Environment Variables
 
