@@ -21,7 +21,7 @@ That's it. The Docker setup includes:
 docker compose up -d
 
 # 2. Run the database migration (creates the tables)
-docker exec formatos-app php migrate.php
+docker exec forms-app php migrate.php
 
 # 3. Open in your browser
 http://localhost
@@ -75,7 +75,7 @@ When a condition is **not met**, the question is hidden from the respondent, its
 ## Project Structure
 
 ```
-formatos/
+forms/
   index.php          Welcome page with navigation
   create.php         Form builder (drag-and-drop UI)
   publish.php        Publish a draft to make it live
