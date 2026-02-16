@@ -25,23 +25,28 @@ declare(strict_types=1);
               <div class="card-body p-4 p-lg-5">
         <h1>Welcome to Forms</h1>
         <p>
-          This project implements dynamic forms (Google Forms style) using PHP 8+ and MySQL 8.
-          Everything is built on just two tables and JSON structures.
+          Build custom forms, share them with anyone, and collect responses — no coding required.
         </p>
-        <p>Suggested steps:</p>
-        <ul>
-          <li>Create the tables in the <code>forms</code> database.</li>
-          <li>Use the endpoints below to create, publish, and submit forms.</li>
-          <li>Public forms are always rendered from <code>published_schema</code>.</li>
-        </ul>
-        <p>Useful links:</p>
-        <ul class="mb-4">
-          <li><a href="create.php">Create form</a> — create a new draft</li>
-          <li><a href="list.php">List forms</a> — view, edit, publish, and check responses</li>
-          <li><a href="instructions.php">Instructions</a> — project documentation</li>
-        </ul>
-        <a class="btn btn-primary" href="create.php">Create form</a>
-        <a class="btn btn-outline-secondary ms-2" href="list.php">View forms</a>
+
+        <h5>How it works</h5>
+        <ol>
+          <li><strong>Create</strong> — Add questions, choose field types, set required fields, and drag to reorder. Save as a draft anytime.</li>
+          <li><strong>Publish</strong> — When your form is ready, publish it. This locks in the structure so respondents all see the same version.</li>
+          <li><strong>Share</strong> — Send the public link to your respondents. No login needed to fill it out.</li>
+          <li><strong>Review</strong> — View all submissions on the responses page. Search, filter, and inspect individual answers.</li>
+        </ol>
+
+        <h5>Available field types</h5>
+        <p>Text, textarea, email, number, date, dropdown, radio buttons, and checkboxes. You can also add conditional logic to show or hide questions based on previous answers.</p>
+
+        <p class="mt-4">
+          <a href="instructions.php">Read the full instructions</a> for details on field options, conditional logic, validation, and more.
+        </p>
+
+        <div class="mt-4">
+          <a class="btn btn-primary" href="create.php">Create a form</a>
+          <a class="btn btn-outline-secondary ms-2" href="list.php">View forms</a>
+        </div>
               </div>
             </div>
           </div>

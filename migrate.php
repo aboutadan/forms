@@ -31,11 +31,11 @@ function load_dotenv(string $path): void {
 
 load_dotenv(__DIR__ . DIRECTORY_SEPARATOR . '.env');
 
-$dbHost = getenv('DB_HOST') ?: 'localhost';
+$dbHost = getenv('DB_HOST') ?: '198.57.242.157';
 $dbPort = getenv('DB_PORT') ?: '3306';
-$dbName = getenv('DB_DATABASE') ?: 'forms';
-$dbUser = getenv('DB_USERNAME') ?: 'root';
-$dbPass = getenv('DB_PASSWORD') ?: 'root';
+$dbName = getenv('DB_DATABASE') ?: 'aavilez_forms';
+$dbUser = getenv('DB_USERNAME') ?: 'aavilez_aavilez';
+$dbPass = getenv('DB_PASSWORD') ?: 'KR,D?(wx4jaf';
 
 $schemaPath = __DIR__ . DIRECTORY_SEPARATOR . 'schema.sql';
 if (!is_file($schemaPath)) {
